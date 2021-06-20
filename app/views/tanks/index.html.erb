@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kangoo - Suivi consommation</h1>
+<p>
+  Ci-dessous nos relevés de carburant depuis que le Kangoo est avec nous,
+  pour nous permettre de suivre la consommation.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Distance (km)</th>
+      <th>Volume (L)</th>
+      <th>Prix (€)</th>
+      <th>Plein complet ?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tanks.each do |tank| %>
+      <tr>
+        <td><%= tank.date.strftime("%d/%m/%Y") %></td>
+        <td><%= tank.distance %></td>
+        <td><%= tank.volume %></td>
+        <td><%= tank.price %></td>
+        <td><%= tank.full ? "oui" : "non" %></td>
+        <td>
+          <%= link_to 'Modifier', edit_tank_path(tank) %>
+          <%= link_to 'Supprimer', tank, method: :delete, data: { confirm: 'sûr ?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouveau relevé', new_tank_path %>

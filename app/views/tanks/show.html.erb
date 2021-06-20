@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kilométrage total:</strong>
+  <%= @tank.distance %> km
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @tank.volume %> L
+</p>
+
+<p>
+  <strong>Prix:</strong>
+  <%= @tank.price %> €
+</p>
+
+<p>
+  <strong>Plein complet ?</strong>
+  <%= @tank.full ? "oui" : "non" %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @tank.date.strftime("%d/%m/%Y") %>
+</p>
+
+<%= link_to 'Modifier', edit_tank_path(@tank) %> |
+<%= link_to 'Retour liste', tanks_path %>
