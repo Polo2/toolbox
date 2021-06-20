@@ -5,13 +5,12 @@
   Ci-dessous nos relevés de carburant depuis que le Kangoo est avec nous,
   pour nous permettre de suivre la consommation.
 </p>
-<i class="bi bi-arrow-90deg-left"></i>
 
 <table class="table table-bordered table-hover">
   <thead class="thead-dark">
     <tr>
       <th>Date</th>
-      <th>Distance (km)</th>
+      <th>Kilométrage</th>
       <th>Volume (L)</th>
       <th>Prix (€)</th>
       <th>Plein complet ?</th>
@@ -28,8 +27,13 @@
         <td><%= tank.price %></td>
         <td><%= tank.full ? "oui" : "non" %></td>
         <td>
-          <%= link_to 'Modifier', edit_tank_path(tank) %>
-          <%= link_to 'Supprimer', tank, method: :delete, data: { confirm: 'sûr ?' } %>
+          <%= link_to edit_tank_path(tank) do %>
+            <i class="bi bi-pencil-fill"></i>
+          <% end %>
+          -
+          <%= link_to tank, method: :delete, data: { confirm: 'sûr ?' } do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>
