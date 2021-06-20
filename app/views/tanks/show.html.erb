@@ -25,5 +25,5 @@
   <%= @tank.date.strftime("%d/%m/%Y") %>
 </p>
 
-<%= link_to 'Modifier', edit_tank_path(@tank) %> |
-<%= link_to 'Retour liste', tanks_path %>
+<%= link_to 'Modifier', edit_tank_path(@tank), class: class: "btn btn-primary" %> |
+<%= link_to 'Retour liste', tanks_path, class: "btn btn-secondary" %>

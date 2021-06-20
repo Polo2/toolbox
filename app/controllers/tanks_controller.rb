@@ -25,7 +25,7 @@ class TanksController < ApplicationController
 
     respond_to do |format|
       if @tank.save
-        format.html { redirect_to tanks, notice: "Nouveau relevé ajouté." }
+        format.html { redirect_to tanks_path, notice: "Nouveau relevé ajouté." }
         format.json { render :show, status: :created, location: @tank }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TanksController < ApplicationController
   def update
     respond_to do |format|
       if @tank.update(tank_params)
-        format.html { redirect_to tanks, notice: "Relevé mis à jour." }
+        format.html { redirect_to tanks_path, notice: "Relevé mis à jour." }
         format.json { render :show, status: :ok, location: @tank }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -5,9 +5,10 @@
   Ci-dessous nos relevés de carburant depuis que le Kangoo est avec nous,
   pour nous permettre de suivre la consommation.
 </p>
+<i class="bi bi-arrow-90deg-left"></i>
 
-<table>
-  <thead>
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
     <tr>
       <th>Date</th>
       <th>Distance (km)</th>
@@ -37,4 +38,4 @@
 
 <br>
 
-<%= link_to 'Nouveau relevé', new_tank_path %>
+<%= link_to 'Nouveau relevé', new_tank_path, class: "btn btn-primary" %>
