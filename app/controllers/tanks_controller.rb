@@ -3,7 +3,11 @@ class TanksController < ApplicationController
 
   # GET /tanks or /tanks.json
   def index
-    @tanks = Tank.all.order(:date)
+    @tanks = Tank.all.order(:distance)
+  end
+
+  def details
+    @tanks = Tank.list_for_details
   end
 
   # GET /tanks/1 or /tanks/1.json

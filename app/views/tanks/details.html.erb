@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kangoo - Suivi consommation</h1>
+<p>
+  Ci-dessous nos relevés de carburant corrigés (pleins uniquement),
+  avec la consommation de chaque plein en L / 100 km.
+</p>
+
+<%= link_to 'Voir tous les relevés', tanks_path, class: "btn btn-secondary" %>
+
+<br>
+<br>
+
+
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Date</th>
+      <th>Kilométrage</th>
+      <th>Kilométrage (delta)</th>
+
+      <th>Volume recalculé (L)</th>
+      <th>Consommation (L / 100)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tanks.each do |tank| %>
+      <tr>
+        <td><%= tank.date.strftime("%d/%m/%Y") %></td>
+        <td><%= tank.distance %></td>
+        <td><%= tank.calculated_distance_delta %></td>
+
+        <td><%= tank.calculated_volume %></td>
+        <td><%= tank.consumption %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
