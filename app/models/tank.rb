@@ -46,7 +46,8 @@ class Tank < ApplicationRecord
 
   def consumption
     return "-" if calculated_distance_delta.nil?
+    return "-" if calculated_distance_delta.zero?
 
-    calculated_volume * 100 / calculated_distance_delta
+    (calculated_volume * 100 / calculated_distance_delta).round(2)
   end
 end

@@ -33,13 +33,9 @@
         <td><%= tank.price %></td>
         <td><%= tank.full ? "oui" : "non" %></td>
         <td>
-          <%= link_to edit_tank_path(tank) do %>
-            <i class="bi bi-pencil-fill"></i>
-          <% end %>
+          <%= link_to "🔧", edit_tank_path(tank) %>
           -
-          <%= link_to tank, method: :delete, data: { confirm: 'sûr ?' } do %>
-            <i class="bi bi-trash-fill"></i>
-          <% end %>
+          <%= link_to "❌", tank, method: :delete, data: { confirm: 'sûr ?' } %>
         </td>
       </tr>
     <% end %>
