@@ -19,6 +19,7 @@
       <th>Kilométrage</th>
       <th>Volume (L)</th>
       <th>Montant (€)</th>
+      <th>Prix (€/L)</th>
       <th>Plein complet ?</th>
       <th>Actions</th>
     </tr>
@@ -31,6 +32,7 @@
         <td><%= tank.distance %></td>
         <td><%= tank.volume %></td>
         <td><%= tank.price %></td>
+        <td><%= tank.price_per_liter %></td>
         <td><%= tank.full ? "oui" : "non" %></td>
         <td>
           <%= link_to "🔧", edit_tank_path(tank) %>
