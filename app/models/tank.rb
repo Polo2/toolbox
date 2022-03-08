@@ -12,6 +12,10 @@ class Tank < ApplicationRecord
     full
   end
 
+  def price_per_liter
+    (price / volume).round(2)
+  end
+
   def previous_full_tank
     list_all_as_array = self.class.list_for_all.to_a
     self_index = list_all_as_array.index(self)
