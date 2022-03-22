@@ -1,4 +1,6 @@
 class BumpController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def fake_webhook
     # POST
     # this is a webhook, to be called implemented in bump.sh
