@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   get "tanks/details", to: "tanks#details"
   resources :tanks
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  post :fake_webhook, to: 'bump#fake_webhook'
+  get :ping_webhook, to: 'bump#ping'
 end
