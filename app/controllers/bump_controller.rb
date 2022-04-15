@@ -7,7 +7,7 @@ class BumpController < ApplicationController
     5.times { puts 'X' * 10 + __method__.to_s + 'X' * 10 }
     p params
 
-    redirect_to ping_webhook_path, notice: 'POST request done on /fake_webhook'
+    # redirect_to ping_webhook_path, notice: 'POST request done on /fake_webhook'
   end
 
   def ping
