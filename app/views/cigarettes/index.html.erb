@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cigarettes</h1>
+
+<div class="card">
+  <div class="card-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/No_Smoking.svg" class="card-img-top" alt="stop clop">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title cigarette"><%= number_of_days_since(@last_cigarette.date) %></h5>
+    <p class="card-text">Nombre de jour depuis dernière clope</p>
+    <%= link_to "Nouvelle 😡", new_cigarette_path, class: "btn btn-primary", style:"width: 100%" %>
+  </div>
+</div>
