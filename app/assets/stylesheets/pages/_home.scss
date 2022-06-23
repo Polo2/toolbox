@@ -4,8 +4,15 @@
 
 }
 
-
 .card {
   width: 18rem;
   margin: 0 auto;
+}
+
+.card .card-image {
+  padding: 4em 4em 2em 4em;
+}
+
+.card .card-body .card-title.cigarette {
+  font-size: 4em;
 }
