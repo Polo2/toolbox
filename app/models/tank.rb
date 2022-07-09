@@ -1,5 +1,8 @@
 # first tank has to be a full tank
 class Tank < ApplicationRecord
+  validates :volume, presence: true
+  validates :price, presence: true
+
   def self.list_for_details
     all.where(full: true).order(:distance)
   end
