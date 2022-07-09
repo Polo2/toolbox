@@ -6,7 +6,11 @@
   avec la consommation de chaque plein en L / 100 km.
 </p>
 
-<%= link_to 'Voir tous les relevés', tanks_path, class: "btn btn-secondary" %>
+<div>
+  <%= link_to 'Nouveau relevé', new_tank_path, class: "btn btn-primary" %>
+  <%= link_to 'Voir tous les relevés', tanks_path, class: "btn btn-secondary" %>
+</div>
+
 
 <br>
 <br>
@@ -38,3 +42,8 @@
     <% end %>
   </tbody>
 </table>
+
+<div>
+  <%= link_to 'Nouveau relevé', new_tank_path, class: "btn btn-primary" %>
+  <%= link_to 'Voir tous les relevés', tanks_path, class: "btn btn-secondary" %>
+</div>
