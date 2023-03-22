@@ -12,3 +12,37 @@
     <%= link_to "Nouvelle 😡", new_cigarette_path, class: "btn btn-primary", style:"width: 100%" %>
   </div>
 </div>
+
+<br>
+<br>
+
+<h2>Périodes sans clopes</h2>
+<p>
+  Ci-dessous une aide pour ne plus fumer,
+  la liste des périodes sans clopes.
+  A trier par durée
+  pour me permettre de suivre la consommation,
+  et étape après étape gagner la bataille.
+</p>
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nb de jours</th>
+      <th>Première</th>
+      <th>Dernière</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @periods.each do |period| %>
+      <tr class=<%= "#{period.dig(:current).present? ? "current-period" : ""}" %> >
+        <td><%= period.dig(:days) %></td>
+        <td><%= period.dig(:start_date).strftime("%d/%m/%Y") %></td>
+        <td><%= period.dig(:end_date).strftime("%d/%m/%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

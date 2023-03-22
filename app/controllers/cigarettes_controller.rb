@@ -5,6 +5,7 @@ class CigarettesController < ApplicationController
   def index
     @cigarettes = Cigarette.all
     @last_cigarette = Cigarette.last_cigarette
+    @periods = @cigarettes.periods
   end
 
   # GET /cigarettes/new
