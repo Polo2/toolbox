@@ -2,3 +2,7 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.current-period td {
+  background-color: $green !important;
+}
