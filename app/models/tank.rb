@@ -4,11 +4,11 @@ class Tank < ApplicationRecord
   validates :price, presence: true
 
   def self.list_for_details
-    all.where(full: true).order(:distance)
+    all.where(full: true).order(distance: :desc)
   end
 
   def self.list_for_all
-    all.order(:distance)
+    all.order(distance: :desc)
   end
 
   def full_tank?
@@ -20,7 +20,7 @@ class Tank < ApplicationRecord
   end
 
   def previous_full_tank
-    list_all_as_array = self.class.list_for_all.to_a
+    list_all_as_array = self.class.order(:distance).to_a
     self_index = list_all_as_array.index(self)
 
     return self if self_index.zero?
@@ -43,7 +43,7 @@ class Tank < ApplicationRecord
   def calculated_volume
     return nil unless full_tank?
 
-    list_all_as_array = self.class.list_for_all.to_a
+    list_all_as_array = self.class.order(:distance).to_a
     self_index = list_all_as_array.index(self)
     return volume if self_index.zero?
 
@@ -56,5 +56,11 @@ class Tank < ApplicationRecord
     return "-" if calculated_distance_delta.zero?
 
     (calculated_volume * 100 / calculated_distance_delta).round(2)
+  end
+
+  def days_since_previous_tanks
+    return "-" if date.blank? || previous_full_tank&.date.blank?
+
+    (date.to_date - previous_full_tank.date.to_date).to_i
   end
 end
