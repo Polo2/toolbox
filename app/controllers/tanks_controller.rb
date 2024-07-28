@@ -3,7 +3,7 @@ class TanksController < ApplicationController
 
   # GET /tanks or /tanks.json
   def index
-    @tanks = Tank.all.order(:distance)
+    @tanks = Tank.list_for_all
   end
 
   def details
@@ -12,6 +12,7 @@ class TanksController < ApplicationController
 
   # GET /tanks/1 or /tanks/1.json
   def show
+    @tank = Tank.find_by(id: params["id"])
   end
 
   # GET /tanks/new
@@ -29,7 +30,7 @@ class TanksController < ApplicationController
 
     respond_to do |format|
       if @tank.save
-        format.html { redirect_to tanks_path, notice: "Nouveau relevé ajouté." }
+        format.html { redirect_to tank_path(@tank), notice: "Nouveau relevé ajouté." }
         format.json { render :show, status: :created, location: @tank }
       else
         format.html { render :new, status: :unprocessable_entity }

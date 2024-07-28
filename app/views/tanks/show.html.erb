@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Kilométrage total:</strong>
-  <%= @tank.distance %> km
-</p>
+<div class="card">
+  <div class="card-image less-padding">
+    <img src="https://cdn.dribbble.com/users/74401/screenshots/4081641/kangoo-icon.png?compress=1&resize=800x600" class="card-img-top" alt="kangoo">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title primary"><%= @tank.consumption %></h5>
+    <h5 class="card-title secondary">L/100</h5>
+    <p class="card-text">depuis <%= @tank.days_since_previous_tanks %> jours <br>(dernier plein complet)</p>
+    <p>
+      <strong>Kilométrage total:</strong>
+      <%= @tank.distance %> km
+    </p>
 
-<p>
-  <strong>Volume:</strong>
-  <%= @tank.volume %> L
-</p>
+    <p>
+      <strong>Volume:</strong>
+      <%= @tank.volume %> L
+    </p>
 
-<p>
-  <strong>Prix:</strong>
-  <%= @tank.price %> €
-</p>
+    <p>
+      <strong>Prix:</strong>
+      <%= @tank.price %> €
+    </p>
 
-<p>
-  <strong>Plein complet ?</strong>
-  <%= @tank.full ? "oui" : "non" %>
-</p>
+    <p>
+      <strong>Plein complet ?</strong>
+      <%= @tank.full ? "oui" : "non" %>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @tank.date.strftime("%d/%m/%Y") %>
-</p>
-
-<%= link_to 'Modifier', edit_tank_path(@tank), class: class: "btn btn-primary" %> |
-<%= link_to 'Retour liste', tanks_path, class: "btn btn-secondary" %>
+    <p>
+      <strong>Date:</strong>
+      <%= @tank.date.strftime("%d/%m/%Y") %>
+    </p>
+    <%= link_to 'Modifier', edit_tank_path(@tank), class: "btn btn-primary" %>
+    <%= link_to 'Retour liste', tanks_path, class: "btn btn-secondary" %>
+  </div>
+</div>

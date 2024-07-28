@@ -13,6 +13,14 @@
   padding: 4em 4em 2em 4em;
 }
 
-.card .card-body .card-title.cigarette {
+.card .card-image.less-padding {
+  padding: 0;
+}
+
+.card .card-body .card-title.primary {
   font-size: 4em;
+}
+
+.card .card-body .card-title.secondary {
+  font-size: 2em;
 }
