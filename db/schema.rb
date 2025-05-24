@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_114520) do
-
+ActiveRecord::Schema[7.2].define(version: 2022_06_23_114520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cigarettes", force: :cascade do |t|
     t.integer "quantity"
-    t.datetime "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tanks", force: :cascade do |t|
@@ -27,9 +26,8 @@ ActiveRecord::Schema.define(version: 2022_06_23_114520) do
     t.float "volume"
     t.float "price"
     t.boolean "full"
-    t.datetime "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
 end
