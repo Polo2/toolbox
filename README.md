@@ -22,3 +22,7 @@ Ruby on Rails
 Postgresql
 Hébergé sur heroku: https://toolbox-polodile.herokuapp.com/
 pas de tests
+
+## Nouveau nom de domaine utilisé
+
+(mais pourquoi l'indiquer ici, vous allez m'ajouter des cigarettes 💩)
