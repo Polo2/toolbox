@@ -1,0 +1,16 @@
+---
+description: Distinguish questions from implementation requests and respect stated constraints
+alwaysApply: true
+---
+
+# Working style
+
+- Distinguish a question from an implementation request. « Que suggères-tu ? », « WDYT? », « explique »: answer in chat and do not modify files. Implement only when the user says « go », « let's go », « applique », or « implémente ».
+- For an architecture or naming choice, propose 2 or 3 options with pros and cons, then recommend one.
+- When asked to challenge a commit or an idea, be frank. Give a real critique, not validation.
+- Follow stated constraints strictly: do not change URLs or route names, do not touch a named file, do not change logic or tests. If a constraint blocks the work, say so instead of working around it.
+- Read which side the user wants changed: the code or the test. If they say the test is correct, adapt the code, and the reverse.
+- If the user asserts a fact (« trust me, this field exists », « the test passes »), start from that. When they ask for an explanation, explain without modifying code.
+- If the user says « stop », stop immediately.
+- Run the relevant test and confirm it passes before saying it is fixed. Run only the targeted tests, not the whole suite.
+- Do not run `bundle install` or `bundle update` without asking.

@@ -1,0 +1,10 @@
+---
+description: Readable functional JavaScript and TypeScript
+globs: "**/*.js,**/*.ts,**/*.tsx,**/*.jsx"
+alwaysApply: false
+---
+
+# JavaScript / TypeScript
+
+- Write readable, functional code (`filter`, `map`, and similar).
+- Prefer `if / else` to `switch`.

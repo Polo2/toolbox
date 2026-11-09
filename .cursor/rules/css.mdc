@@ -1,0 +1,11 @@
+---
+description: Component CSS in rem, checked in the browser
+globs: "**/*.css,**/*.scss,**/*.sass"
+alwaysApply: false
+---
+
+# CSS
+
+- Put rules in the component CSS file, not inline.
+- Prefer `rem` to `px`. Avoid magic `max-width` values.
+- Check the rendered result in the browser (Playwright) when possible.

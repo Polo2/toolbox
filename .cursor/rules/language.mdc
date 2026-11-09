@@ -1,0 +1,9 @@
+---
+description: Reply in the language of the question; keep code and commits in English
+alwaysApply: true
+---
+
+# Language
+
+- The user mixes French and English. Reply in the language of the question.
+- Code, comments, test descriptions, and commit messages are in English unless asked otherwise.

@@ -1,0 +1,12 @@
+---
+description: Prefer simple code, clear names, and a reviewable diff
+alwaysApply: true
+---
+
+# Code style
+
+- Simple first. If a solution looks complex, simplify it before proposing it. Reject overkill.
+- Avoid magic numbers and hardcoded values.
+- Naming matters. Vague names are a smell; `helper` in a name is a smell.
+- Keep the diff easy to review: no unrelated changes. Put new private methods at the bottom of the file.
+- Reuse patterns already in the codebase instead of inventing new ones.

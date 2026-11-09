@@ -1,0 +1,13 @@
+---
+description: Explicit RSpec style, factories, and targeted test runs
+globs: "spec/**/*_spec.rb"
+alwaysApply: false
+---
+
+# Tests (RSpec)
+
+- When given a template file, follow it closely: structure, helpers, and naming.
+- Write explicit, verbose tests: one `it` per case. Do not generate tests with `.each`. Do not use `shared_examples` unless asked.
+- Prefer existing factories to `spy` and `double`.
+- For long output, use a heredoc (`eq(<<~JSON.strip)`) and intermediate variables (`expected_request_body`).
+- For mocks, use `allow(...).to receive(...).and_call_original`, then `expect(...).to have_received(...)`. Stub the instance, not the class. A model spec must not depend on an external HTTP client response.
