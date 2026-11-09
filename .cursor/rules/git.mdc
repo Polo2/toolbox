@@ -1,0 +1,10 @@
+---
+description: Commit messages explain why, one commit per logical step
+alwaysApply: true
+---
+
+# Git
+
+- Commit messages are clear and concise, and explain why.
+- One commit per logical step. For a large change, propose a commit-by-commit plan first.
+- If asked for a « WIP » commit, commit as-is and mention the remaining TODOs in the message.

@@ -1,0 +1,13 @@
+---
+description: Ruby and Rails conventions, including ActiveRecord and ViewComponent
+globs: "**/*.rb,**/*.rake,**/*.erb"
+alwaysApply: false
+---
+
+# Ruby / Rails
+
+- Follow Rails conventions.
+- ActiveRecord: use the query interface (`joins`, `merge`, `where.missing`, scopes), never raw SQL. Prefer scopes to class methods.
+- Use shorthand keyword arguments (`new(node:)`), double quotes, and constants (`FORBIDDEN_NAMES = [...].freeze`) rather than methods that return fixed values.
+- Prefer a readable `if / elsif / else` to a cascade of guard clauses and early returns.
+- ViewComponent: sidecar components (`folder/component.rb` + `component.html.erb`), `.html.erb` templates rather than `#call`, and slots rather than text parameters. Do not declare variables in views.
