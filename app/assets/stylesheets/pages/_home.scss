@@ -38,10 +38,23 @@
   margin: 0;
 }
 
-.tool-list .card-img-top {
+.tool-list .card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 11rem;
+}
+
+.tool-list .card-media img {
+  width: 8rem;
+  height: 8rem;
   object-fit: contain;
-  background-color: white;
+  object-position: center;
+}
+
+// The kangaroo file is 800×600 and the animal only occupies x 262–494, y 171–428.
+.tool-list .card-media__kangoo {
+  object-view-box: inset(28.5% 38.125% 28.5% 32.75%);
 }
 
 .tool-list .card-body {
