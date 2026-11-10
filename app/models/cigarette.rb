@@ -8,16 +8,20 @@ class Cigarette < ApplicationRecord
 
   def self.periods
     cigarettes_orders_by_date = order(:date)
-    last_index =  cigarettes_orders_by_date.length - 1
-    periods = [current_period]
-    for i in 1..last_index
-      periods << {
-        start_date: cigarettes_orders_by_date[i - 1].date_format,
-        end_date: cigarettes_orders_by_date[i].date_format,
-        days: (cigarettes_orders_by_date[i].date_format - cigarettes_orders_by_date[i - 1].date_format).to_i
-      }
+    if cigarettes_orders_by_date.empty?
+      []
+    else
+      last_index = cigarettes_orders_by_date.length - 1
+      periods = [current_period]
+      for i in 1..last_index
+        periods << {
+          start_date: cigarettes_orders_by_date[i - 1].date_format,
+          end_date: cigarettes_orders_by_date[i].date_format,
+          days: (cigarettes_orders_by_date[i].date_format - cigarettes_orders_by_date[i - 1].date_format).to_i
+        }
+      end
+      periods.sort_by { |period| period.dig(:days) }.reverse
     end
-    periods.sort_by{ |period| period.dig(:days) }.reverse
   end
 
   def date_format

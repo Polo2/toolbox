@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="container site-header__bar">
+    <%= link_to "Permacouture", root_path, class: "site-header__name" %>
+    <nav aria-label="Outils">
+      <ul class="site-header__links">
+        <li><%= link_to "Accueil", root_path, current_page_aria(controller_name == "pages") %></li>
+        <li><%= link_to "Kangoo", tanks_path, current_page_aria(controller_name == "tanks") %></li>
+        <li><%= link_to "Cigarettes", cigarettes_path, current_page_aria(controller_name == "cigarettes") %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

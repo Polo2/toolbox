@@ -1,12 +1,68 @@
-.navbar-lewagon {
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: $gray;
+  color: white;
+  z-index: 1;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  color: white;
+  transform: translateY(0);
+}
+
+.site-header {
+  background-color: white;
+  border-bottom: 0.0625rem solid rgba($gray, 0.15);
+}
+
+.site-header__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  background: white;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: start;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.site-header__name {
+  color: $gray;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.site-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: $gray;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.site-header__links a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.site-header a:focus-visible {
+  outline: 0.125rem solid $gray;
+  outline-offset: 0.25rem;
+}
+
+.site-header + main {
+  padding-top: 1.5rem;
 }

@@ -31,6 +31,10 @@ RSpec.describe Cigarette, type: :model do
   end
 
   describe ".periods" do
+    it "returns no stretches when no cigarette has been recorded" do
+      expect(Cigarette.periods).to eq([])
+    end
+
     it "lists the open stretch and the gaps between cigarettes, longest first" do
       travel_to Date.new(2024, 2, 1) do
         Cigarette.create!(quantity: 1, date: Date.new(2024, 1, 1))

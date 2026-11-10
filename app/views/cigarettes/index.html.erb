@@ -7,8 +7,13 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/No_Smoking.svg" class="card-img-top" alt="stop clop">
   </div>
   <div class="card-body">
-    <h5 class="card-title primary"><%= number_of_days_since(@last_cigarette.date) %></h5>
-    <p class="card-text">Nombre de jour depuis dernière clope</p>
+    <% if @last_cigarette %>
+      <h5 class="card-title primary"><%= number_of_days_since(@last_cigarette.date) %></h5>
+      <p class="card-text">Nombre de jour depuis dernière clope</p>
+    <% else %>
+      <h5 class="card-title">Aucune</h5>
+      <p class="card-text">Pas encore de cigarette enregistrée</p>
+    <% end %>
     <%= link_to "Nouvelle 😡", new_cigarette_path, class: "btn btn-primary", style:"width: 100%" %>
   </div>
 </div>
