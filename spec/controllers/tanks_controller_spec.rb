@@ -25,6 +25,15 @@ RSpec.describe TanksController, type: :controller do
       expect(response.body).to include("<td>oui</td>")
       expect(response.body).to include("<td>non</td>")
     end
+
+    it "shows the site header with Kangoo as the current page" do
+      get :index
+
+      expect(response.body).to include("<header")
+      expect(response.body).to include(%(href="#{root_path}">Accueil))
+      expect(response.body).to include(%(aria-current="page" href="#{tanks_path}">Kangoo))
+      expect(response.body).to include(%(href="#{cigarettes_path}">Cigarettes))
+    end
   end
 
   describe "GET #details" do

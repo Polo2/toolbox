@@ -4,6 +4,14 @@ RSpec.describe CigarettesController, type: :controller do
   render_views
 
   describe "GET #index" do
+    it "renders when no cigarette has been recorded" do
+      get :index
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Pas encore de cigarette enregistrée")
+      expect(response.body).to include(%(aria-current="page" href="#{cigarettes_path}">Cigarettes))
+    end
+
     it "shows how many days have passed since the last cigarette" do
       travel_to Date.new(2024, 2, 1) do
         Cigarette.create!(quantity: 1, date: Date.new(2024, 1, 26))
@@ -42,6 +50,16 @@ RSpec.describe CigarettesController, type: :controller do
 
       expect(response).to have_http_status(:ok)
       expect(response.body).to include("Nouvelle(s) cigarette(s)")
+    end
+
+    it "shows the site header with Cigarettes as the current page" do
+      get :new
+
+      expect(response.body).to include("<header")
+      expect(response.body).to include("Permacouture")
+      expect(response.body).to include(%(href="#{root_path}">Accueil))
+      expect(response.body).to include(%(href="#{tanks_path}">Kangoo))
+      expect(response.body).to include(%(aria-current="page" href="#{cigarettes_path}">Cigarettes))
     end
   end
 

@@ -13,8 +13,10 @@
   </head>
 
   <body>
-    <div class="container">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <%= render "shared/header" %>
+    <main id="contenu" class="container">
       <%= yield %>
-    </div>
+    </main>
   </body>
 </html>
