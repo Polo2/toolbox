@@ -1,0 +1,123 @@
+.tank-log {
+  text-align: start;
+}
+
+.tank-log h1,
+.tank-log__intro {
+  text-align: center;
+}
+
+.tank-log__intro {
+  margin-bottom: 1.5rem;
+}
+
+.tank-log__actions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tank-log__actions .btn {
+  white-space: nowrap;
+}
+
+.tank-table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  table-layout: fixed;
+  background-color: white;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.5rem;
+    vertical-align: middle;
+    border-bottom: 0.0625rem solid rgba($gray, 0.15);
+  }
+
+  th {
+    font-weight: 700;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+  }
+
+  td {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+}
+
+$tank-table-width: 46rem;
+
+.tank-table--readings,
+.tank-table--details {
+  width: 100%;
+  margin-inline: auto;
+  table-layout: auto;
+
+  th,
+  td {
+    text-align: center;
+  }
+}
+
+.tank-table__actions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.tank-table__actions a:focus-visible {
+  outline: 0.125rem solid $gray;
+  outline-offset: 0.25rem;
+}
+
+@include media-breakpoint-down(md) {
+  .tank-table {
+    font-size: 0.75rem;
+  }
+
+  .tank-table__actions {
+    gap: 0.25rem;
+  }
+}
+
+.tank-table--readings th,
+.tank-table--readings td {
+  padding-inline: 1.25rem;
+}
+
+.tank-table--details th,
+.tank-table--details td {
+  padding-inline: 0.75rem;
+}
+
+@include media-breakpoint-up(md) {
+  .tank-table--readings,
+  .tank-table--details {
+    width: $tank-table-width;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .tank-table--readings th,
+  .tank-table--readings td {
+    padding-inline: 0.35rem;
+  }
+}
+
+// Seven columns cannot keep 0.35rem of padding inside a 320px screen.
+@media (max-width: 23rem) {
+  .tank-table--readings th,
+  .tank-table--readings td {
+    padding-inline: 0.125rem;
+  }
+}

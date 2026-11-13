@@ -1,55 +1,60 @@
-<p id="notice"><%= notice %></p>
+<section class="tank-log">
+  <p id="notice"><%= notice %></p>
 
-<h1>Kangoo - relevés carburants</h1>
-<p>
-  Ci-dessous nos relevés de carburant depuis que le Kangoo est avec nous,
-  pour nous permettre de suivre la consommation.
-</p>
+  <h1>Kangooroule</h1>
+  <p class="tank-log__intro">Liste de tous les pleins</p>
 
-<div>
-  <%= link_to 'Nouveau relevé', new_tank_path, class: "btn btn-primary" %>
-  <%= link_to 'Voir détails consommation', tanks_details_path, class: "btn btn-secondary" %>
-</div>
+  <div class="tank-log__actions">
+    <%= link_to "Nouveau", new_tank_path, class: "btn btn-primary" %>
+    <%= link_to "Suivi conso", tanks_details_path, class: "btn btn-secondary" %>
+  </div>
 
-<br>
-<br>
-
-
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Date</th>
-      <th>Kilométrage</th>
-      <th>Volume (L)</th>
-      <th>Montant (€)</th>
-      <th>Prix (€/L)</th>
-      <th>Plein complet ?</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tanks.each do |tank| %>
+  <table class="tank-table tank-table--readings">
+    <thead>
       <tr>
-        <td><%= tank.date.strftime("%d/%m/%Y") %></td>
-        <td><%= tank.distance %></td>
-        <td><%= tank.volume %></td>
-        <td><%= tank.price %></td>
-        <td><%= tank.price_per_liter %></td>
-        <td><%= tank.full ? "oui" : "non" %></td>
-        <td>
-          <%= link_to "🔧", edit_tank_path(tank) %>
-          -
-          <%= link_to "❌", tank, method: :delete, data: { confirm: 'sûr ?' } %>
-        </td>
+        <th scope="col">Date</th>
+        <th scope="col">km</th>
+        <th scope="col">
+          <span class="d-none d-md-inline">Volume (L)</span>
+          <span class="d-md-none">L</span>
+        </th>
+        <th scope="col">
+          <span class="d-none d-md-inline">Montant (€)</span>
+          <span class="d-md-none">€</span>
+        </th>
+        <th scope="col">
+          <span class="d-none d-md-inline">Prix (€/L)</span>
+          <span class="d-md-none">€/L</span>
+        </th>
+        <th scope="col">Plein?</th>
+        <th scope="col">
+          <span class="d-none d-md-inline">Actions</span>
+          <span class="sr-only d-md-none">Actions</span>
+        </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @tanks.each do |tank| %>
+        <tr>
+          <td data-label="Date"><%= tank.date.strftime("%d/%m/%y") %></td>
+          <td data-label="Kilométrage"><%= tank.distance %></td>
+          <td data-label="Volume (L)"><%= tank.volume %></td>
+          <td data-label="Montant (€)"><%= tank.price %></td>
+          <td data-label="Prix (€/L)"><%= tank.price_per_liter %></td>
+          <td data-label="Plein complet ?"><%= tank.full ? "oui" : "non" %></td>
+          <td data-label="Actions">
+            <span class="tank-table__actions">
+              <%= link_to "🔧", edit_tank_path(tank), aria: { label: "Modifier" } %>
+              <%= link_to "❌", tank, method: :delete, data: { confirm: "sûr ?" }, aria: { label: "Supprimer" } %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-
-<div>
-  <%= link_to 'Nouveau relevé', new_tank_path, class: "btn btn-primary" %>
-  <%= link_to 'Voir détails consommation', tanks_details_path, class: "btn btn-secondary" %>
-</div>
+  <div class="tank-log__actions">
+    <%= link_to "Nouveau", new_tank_path, class: "btn btn-primary" %>
+    <%= link_to "Suivi conso", tanks_details_path, class: "btn btn-secondary" %>
+  </div>
+</section>
