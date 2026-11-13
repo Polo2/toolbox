@@ -12,8 +12,8 @@ RSpec.describe TanksController, type: :controller do
 
       get :index
 
-      expect(response.body).to include("<td>#{full_tank_distance}</td>")
-      expect(response.body).to include("<td>#{partial_fill_distance}</td>")
+      expect(response.body).to include(%(<td data-label="Kilométrage">#{full_tank_distance}</td>))
+      expect(response.body).to include(%(<td data-label="Kilométrage">#{partial_fill_distance}</td>))
     end
 
     it "marks a full tank as oui and a partial fill as non" do
@@ -22,8 +22,8 @@ RSpec.describe TanksController, type: :controller do
 
       get :index
 
-      expect(response.body).to include("<td>oui</td>")
-      expect(response.body).to include("<td>non</td>")
+      expect(response.body).to include(%(<td data-label="Plein complet ?">oui</td>))
+      expect(response.body).to include(%(<td data-label="Plein complet ?">non</td>))
     end
 
     it "shows the site header with Kangoo as the current page" do
@@ -47,7 +47,7 @@ RSpec.describe TanksController, type: :controller do
 
       get :details
 
-      expect(response.body).to include("<td>#{liters_per_100_km}</td>")
+      expect(response.body).to include(%(<td data-label="Consommation (L / 100)">#{liters_per_100_km}</td>))
     end
 
     it "leaves out partial fills" do
@@ -57,7 +57,7 @@ RSpec.describe TanksController, type: :controller do
 
       get :details
 
-      expect(response.body).not_to include("<td>#{partial_fill_distance}</td>")
+      expect(response.body).not_to include(%(<td data-label="Kilométrage">#{partial_fill_distance}</td>))
     end
   end
 
